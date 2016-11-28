@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">StaticFragment</string>
+    <string name="edtText">Text</string>
+    <string name="btnChangeText">Change text</string>
+    <string name="txvTextResult">Text Result</string>
+    <string name="aboutUs">
+        <![CDATA[
+        <h1>Static Fragment</h1>
+        <h2>Ejercicio de clase</h2>
+        <p>Este ejercicio muestra un pequeño ejemplo de cómo crear <u>un Fragment</u></p>
+        <ol>
+            <li>Uno</li>
+            <li>Dos</li>
+            <li>...</li>
+        </ol>
+        ]]>
+    </string>
+</resources>
