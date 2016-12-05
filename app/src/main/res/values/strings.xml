@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StaticFragment</string>
+    <string name="app_name">DynamicFragment</string>
     <string name="edtText">Text</string>
     <string name="btnChangeText">Change text</string>
     <string name="txvTextResult">Text Result</string>

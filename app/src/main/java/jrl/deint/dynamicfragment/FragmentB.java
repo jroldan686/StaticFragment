@@ -1,4 +1,4 @@
-package jrl.deint.staticfragment;
+package jrl.deint.dynamicfragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -15,6 +15,24 @@ import android.widget.TextView;
 public class FragmentB extends Fragment {
 
     private TextView txvTextResult;
+    public static final String TEXT_KEY = "text";
+    public static final String SIZE_KEY = "size";
+    public static final String TAG_FRAGMENT = "fragmentB";
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Retain this fragment
+        setRetainInstance(true);
+    }
+
+    public static FragmentB newInstance(Bundle arguments) {
+        FragmentB fragmentB = new FragmentB();
+        if(arguments!=null) {
+            fragmentB.setArguments(arguments);
+        }
+        return fragmentB;
+    }
 
     @Nullable
     @Override
@@ -22,19 +40,14 @@ public class FragmentB extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_a,container,false);
         if(rootView!=null) {
-            txvTextResult = (TextView)rootView.findViewById(R.id.txvTextResult);
+            txvTextResult = (TextView) rootView.findViewById(R.id.txvTextResult);
+            Bundle bundle = getArguments();
+            if (bundle != null) {
+                txvTextResult.setText(bundle.getString(TEXT_KEY));
+                txvTextResult.setTextSize(bundle.getFloat(SIZE_KEY));
+            }
         }
         return rootView;
-    }
-
-    /**
-     * Method which modifies the text and font size
-     * @param text          The text to be displayed
-     * @param size      The font size
-     */
-    public void changeTextPropierties(String text, int size) {
-        txvTextResult.setText(text);
-        txvTextResult.setTextSize(size);
     }
 
     @Override
@@ -50,7 +63,6 @@ public class FragmentB extends Fragment {
         if(savedInstanceState != null) {
             String text = savedInstanceState.getString("text");
             int fontsize = (int)savedInstanceState.getDouble("fontsize");
-            changeTextPropierties(text, fontsize);
         }
     }
 }

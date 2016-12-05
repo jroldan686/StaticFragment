@@ -1,8 +1,7 @@
-package jrl.deint.staticfragment;
+package jrl.deint.dynamicfragment;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -18,10 +17,19 @@ import android.widget.SeekBar;
 
 public class FragmentA extends Fragment {
 
+    public static final String TAG_FRAGMENT = "fragmentA";
+
     private EditText edtText;
     private Button btnChangeText;
     private SeekBar skbTextSize;
     private FragmentIterationListener mCallback;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Retain this fragment
+        setRetainInstance(true);
+    }
 
     public interface FragmentIterationListener {
         void onFragmentIterationListener(String text, int size);

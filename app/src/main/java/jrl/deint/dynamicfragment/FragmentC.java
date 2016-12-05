@@ -1,4 +1,4 @@
-package jrl.deint.staticfragment;
+package jrl.deint.dynamicfragment;
 
 import android.app.Fragment;
 import android.os.Bundle;

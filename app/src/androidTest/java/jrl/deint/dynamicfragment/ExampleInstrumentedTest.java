@@ -1,4 +1,4 @@
-package jrl.deint.staticfragment;
+package jrl.deint.dynamicfragment;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

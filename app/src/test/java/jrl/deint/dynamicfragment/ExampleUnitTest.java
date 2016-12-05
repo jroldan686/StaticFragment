@@ -1,4 +1,4 @@
-package jrl.deint.staticfragment;
+package jrl.deint.dynamicfragment;
 
 import org.junit.Test;
 
